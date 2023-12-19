@@ -104,10 +104,10 @@ const getCountryIdd = computed(() => {
 });
 
 const onSortAsc = () => {
-  countries.value = _.orderBy(countries.value, ["name.common"], "asc");
+  countries.value = _.orderBy(countries.value, ["name.official"], "asc");
 };
 
 const onSortDesc = () => {
-  countries.value = _.orderBy(countries.value, ["name.common"], "desc");
+  countries.value = _.orderBy(countries.value, ["name.official"], "desc");
 };
 </script>
