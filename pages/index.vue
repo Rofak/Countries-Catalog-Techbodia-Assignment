@@ -19,12 +19,20 @@
         >
       </div>
       <div>
-        <UButton size="xl" class="mx-2">Previous</UButton>
-        <UButton size="xl" class="mx-2">Next</UButton>
+        <UPagination
+          v-model="page"
+          size="xl"
+          :page-count="perPage"
+          :total="countries.length"
+        />
       </div>
     </div>
     <div class="grid grid-cols-4">
-      <div v-for="(country, index) of countries" :key="index" class="mx-2 my-4">
+      <div
+        v-for="(country, index) of countriesPaginate"
+        :key="index"
+        class="mx-2 my-4"
+      >
         <div class="text-center">
           <img :src="country.flags.png" />
           <span
@@ -75,8 +83,20 @@ const service = new CountryService();
 const countries: any = useState("countries", () => []);
 const currentCountry: any = useState("currentCountry", () => {});
 const countryName = useState("countryName", () => "");
+const page = useState("page", () => 1);
 const isOpen = useState("isOpen", () => false);
+const perPage = 25;
+
+const paginate = (countries) => {
+  const from = page.value * perPage - perPage;
+  const to = page.value * perPage;
+  return countries.slice(from, to);
+};
+
 countries.value = await service.getListCountry();
+const countriesPaginate = computed(() => {
+  return paginate(countries.value);
+});
 
 const onSearchByCountryName = async ($event) => {
   countries.value = await service.searchByCountryName($event.target.value);
