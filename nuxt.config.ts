@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/eslint-module", "@nuxt-alt/http", "@nuxt/ui"],
   ssr: false,
   app: {
-    baseURL: "/nuxt-github-pages/",
+    baseURL: "/Countries-Catalog-Techbodia-Assignment/",
     buildAssetsDir: "assets",
   },
 });
