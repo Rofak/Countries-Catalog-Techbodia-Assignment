@@ -11,8 +11,12 @@
     <div class="mt-5">Sort by Country Name</div>
     <div class="mb-2 flex justify-between">
       <div>
-        <UButton size="xl" class="mr-2" @click="onSortAsc">Asc</UButton>
-        <UButton size="xl" class="mx-2" @click="onSortDesc">Desc</UButton>
+        <UButton size="xl" class="mr-2" @click="onSortByCountryNameAsc"
+          >Asc</UButton
+        >
+        <UButton size="xl" class="mx-2" @click="onSortByCountryNameDesc"
+          >Desc</UButton
+        >
       </div>
       <div>
         <UButton size="xl" class="mx-2">Previous</UButton>
@@ -103,11 +107,11 @@ const getCountryIdd = computed(() => {
   return _.join(idd, ",");
 });
 
-const onSortAsc = () => {
+const onSortByCountryNameAsc = () => {
   countries.value = _.orderBy(countries.value, ["name.official"], "asc");
 };
 
-const onSortDesc = () => {
+const onSortByCountryNameDesc = () => {
   countries.value = _.orderBy(countries.value, ["name.official"], "desc");
 };
 </script>
