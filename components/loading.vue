@@ -3,7 +3,7 @@ const loading = useLoading();
 </script>
 
 <template>
-  <div class="bg-white opacity-75 absolute h-screen w-full z-10">
+  <div v-if="loading" class="bg-white opacity-75 absolute h-screen w-full z-10">
     <div class="absolute top-1/2 left-1/2">
       <div role="status">
         <svg
