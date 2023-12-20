@@ -11,10 +11,18 @@
     <div class="mt-5">Sort by Country Name</div>
     <div class="mb-2 flex justify-between">
       <div>
-        <UButton size="xl" class="mr-2" @click="onSortByCountryNameAsc"
+        <UButton
+          :disabled="disabledBtnAsc"
+          size="xl"
+          class="mr-2"
+          @click="onSortByCountryNameAsc"
           >ASC</UButton
         >
-        <UButton size="xl" class="mx-2" @click="onSortByCountryNameDesc"
+        <UButton
+          :disabled="disabledBtnDesc"
+          size="xl"
+          class="mx-2"
+          @click="onSortByCountryNameDesc"
           >DESC</UButton
         >
       </div>
@@ -86,6 +94,8 @@ const countryName = useState("countryName", () => "");
 const page = useState("page", () => 1);
 const isOpen = useState("isOpen", () => false);
 const perPage = 25;
+const disabledBtnAsc = useState("disabledBtnAsc", () => false);
+const disabledBtnDesc = useState("disabledBtnDesc", () => false);
 
 const paginate = (countries) => {
   const from = page.value * perPage - perPage;
@@ -129,9 +139,13 @@ const getCountryIdd = computed(() => {
 
 const onSortByCountryNameAsc = () => {
   countries.value = _.orderBy(countries.value, ["name.official"], "asc");
+  disabledBtnAsc.value = true;
+  disabledBtnDesc.value = false;
 };
 
 const onSortByCountryNameDesc = () => {
   countries.value = _.orderBy(countries.value, ["name.official"], "desc");
+  disabledBtnAsc.value = false;
+  disabledBtnDesc.value = true;
 };
 </script>
