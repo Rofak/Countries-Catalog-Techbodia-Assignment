@@ -12,10 +12,10 @@
     <div class="mb-2 flex justify-between">
       <div>
         <UButton size="xl" class="mr-2" @click="onSortByCountryNameAsc"
-          >Asc</UButton
+          >ASC</UButton
         >
         <UButton size="xl" class="mx-2" @click="onSortByCountryNameDesc"
-          >Desc</UButton
+          >DESC</UButton
         >
       </div>
       <div>
