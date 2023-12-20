@@ -19,6 +19,7 @@ export default class CountryService {
       }
       return this.getListCountry();
     } catch (e) {
+      return [];
     } finally {
       this.loading.value = false;
     }

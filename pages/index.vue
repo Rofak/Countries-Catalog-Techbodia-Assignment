@@ -51,6 +51,7 @@
         </div>
       </div>
     </div>
+    <div v-if="countries.length === 0" class="text-center">Not Fond!</div>
     <UModal v-model="isOpen">
       <div class="p-4 break-all">
         <img :src="currentCountry.flags.png" class="w-full h-full" />
