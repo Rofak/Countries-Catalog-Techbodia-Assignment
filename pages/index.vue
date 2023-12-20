@@ -52,7 +52,16 @@
       </div>
     </div>
     <div v-if="countries.length === 0" class="text-center">Not Fond!</div>
-    <UModal v-model="isOpen">
+    <UModal v-model="isOpen" prevent-close>
+      <div class="flex items-center justify-between">
+        <div></div>
+        <UButton
+          color="gray"
+          variant="ghost"
+          icon="i-heroicons-x-mark-20-solid"
+          @click="isOpen = false"
+        />
+      </div>
       <div class="p-4 break-all">
         <img :src="currentCountry.flags.png" class="w-full h-full" />
         <div class="mt-5">
