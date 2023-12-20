@@ -9,7 +9,7 @@
       />
     </div>
     <div class="mt-5">Sort by Country Name</div>
-    <div class="mb-2 flex justify-between">
+    <div class="mb-2 md:flex justify-between">
       <div>
         <UButton
           :disabled="disabledBtnAsc"
@@ -26,7 +26,7 @@
           >DESC</UButton
         >
       </div>
-      <div>
+      <div class="mt-3 md:mt-0">
         <UPagination
           v-model="page"
           size="xl"
@@ -35,7 +35,7 @@
         />
       </div>
     </div>
-    <div class="grid grid-cols-4">
+    <div class="grid grid-cols-2 md:grid-cols-4">
       <div
         v-for="(country, index) of countriesPaginate"
         :key="index"
