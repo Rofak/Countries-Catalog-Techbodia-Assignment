@@ -110,6 +110,7 @@ const countriesPaginate = computed(() => {
 });
 
 const onSearchByCountryName = async ($event) => {
+  page.value = 1;
   countries.value = await service.searchByCountryName($event.target.value);
 };
 
